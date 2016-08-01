@@ -52,27 +52,4 @@ module Enumerable
   end
 end
 
-(1..5).my_each do |element|
-  puts element
-end
 
-puts
-
-(1..5).my_each_with_index do |element, index|
-  puts "#{index}-#{element}"
-end
-
-puts
-
-new_array = (1..5).my_select do |element|
-  element % 2 == 0
-end
-puts new_array
-
-puts
-
-puts (1..5).my_all? { |element| element > 1 }
-
-puts
-
-puts puts (1..5).my_any? { |element| element > 1 }
