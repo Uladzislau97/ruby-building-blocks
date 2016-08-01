@@ -107,4 +107,6 @@ module Enumerable
   end
 end
 
-
+def multiply_els(array)
+  array.my_inject { |result, element| result * element } 
+end
