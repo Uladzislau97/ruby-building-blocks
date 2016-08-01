@@ -1,6 +1,6 @@
 module Enumerable
   def my_each
-    return self unless block_given?
+    return "Error! You should pass a block" unless block_given?
 
     for element in self
       yield(element)
@@ -8,7 +8,7 @@ module Enumerable
   end
 
   def my_each_with_index
- 	return self unless block_given?
+ 	return "Error! You should pass a block" unless block_given?
 
  	index = 0
     for element in self
@@ -16,6 +16,12 @@ module Enumerable
       index += 1
     end
   end
+
+  def my_select
+	return "Error! You should pass a block" unless block_given?
+
+
+  end 
 end
 
 (1..5).my_each do |element|
