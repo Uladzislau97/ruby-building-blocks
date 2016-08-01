@@ -60,6 +60,18 @@ module Enumerable
 
 	true
   end
+
+  def my_count
+	return "Error! You should pass a block" unless block_given?
+
+	amount = 0
+
+	self.my_each do |element|
+	  amount += 1 if yield(element) 
+	end  	
+
+	amount
+  end
 end
 
 
