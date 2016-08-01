@@ -74,8 +74,8 @@ module Enumerable
   end
 
   #can get proc or block
-  #if block is given my_map will use it
-  #else use proc
+  #if block is given my_map uses it
+  #else uses proc
   def my_map(proc)     
 	result = Array.new
 
@@ -91,5 +91,20 @@ module Enumerable
 
 	result
   end
+
+  def my_inject(start=0)
+	return "Error! You should pass a block" unless block_given?
+
+	self_array = self.to_a
+	result = self_array[start]
+	n = self_array.length
+
+	(start+1...n).my_each do |element|
+	  result = yield(result, self_array[element])
+	end
+
+	result
+  end
 end
+
 
