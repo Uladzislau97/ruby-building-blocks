@@ -73,15 +73,23 @@ module Enumerable
 	amount
   end
 
-  def my_map
-  	return "Error! You should pass a block" unless block_given?
-     
+  #can get proc or block
+  #if block is given my_map will use it
+  #else use proc
+  def my_map(proc)     
 	result = Array.new
 
-	self.my_each do |element|
-	  result << yield(element)
+	if block_given?
+	  self.my_each do |element|
+	  	result << yield(element)
+	  end
+	else
+	  self.my_each do |element|
+	  	result << proc.call(element)
+	  end
 	end
 
 	result
   end
 end
+
