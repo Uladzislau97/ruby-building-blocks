@@ -29,6 +29,16 @@ module Enumerable
 	end
 
 	result
+  end
+
+  def my_all?
+	return "Error! You should pass a block" unless block_given?
+
+	self.my_each do |element|
+	  return false unless yield(element)
+	end  	
+
+	true
   end 
 end
 
@@ -48,3 +58,7 @@ new_array = (1..5).my_select do |element|
   element % 2 == 0
 end
 puts new_array
+
+puts
+
+puts (1..5).my_all? { |element| element > 1 }
