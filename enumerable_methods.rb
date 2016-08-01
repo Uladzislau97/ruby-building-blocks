@@ -72,6 +72,16 @@ module Enumerable
 
 	amount
   end
+
+  def my_map
+  	return "Error! You should pass a block" unless block_given?
+     
+	result = Array.new
+
+	self.my_each do |element|
+	  result << yield(element)
+	end
+
+	result
+  end
 end
-
-
