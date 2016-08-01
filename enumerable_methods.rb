@@ -40,6 +40,16 @@ module Enumerable
 
 	true
   end 
+
+  def my_any?
+  	return "Error! You should pass a block" unless block_given?
+
+	self.my_each do |element|
+	  return true if yield(element)
+	end  	
+
+	false
+  end
 end
 
 (1..5).my_each do |element|
@@ -62,3 +72,7 @@ puts new_array
 puts
 
 puts (1..5).my_all? { |element| element > 1 }
+
+puts
+
+puts puts (1..5).my_any? { |element| element > 1 }
