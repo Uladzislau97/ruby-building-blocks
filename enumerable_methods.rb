@@ -50,6 +50,16 @@ module Enumerable
 
 	false
   end
+
+  def my_none?
+  	return "Error! You should pass a block" unless block_given?
+
+	self.my_each do |element|
+	  return false if yield(element)
+	end  	
+
+	true
+  end
 end
 
 
