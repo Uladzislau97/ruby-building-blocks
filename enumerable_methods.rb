@@ -20,7 +20,15 @@ module Enumerable
   def my_select
 	return "Error! You should pass a block" unless block_given?
 
+	result = Array.new
 
+	self.my_each do |element|
+	  if yield(element)
+	  	result << element
+	  end
+	end
+
+	result
   end 
 end
 
@@ -28,7 +36,15 @@ end
   puts element
 end
 
+puts
+
 (1..5).my_each_with_index do |element, index|
   puts "#{index}-#{element}"
 end
 
+puts
+
+new_array = (1..5).my_select do |element|
+  element % 2 == 0
+end
+puts new_array
