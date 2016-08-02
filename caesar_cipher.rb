@@ -12,7 +12,7 @@ def str_is_int?(code)
 end
 
 def caesar_cipher(string, code)
-  if code >= 0 and code <= 26
+  if code >= 0 && code <= 26
   	symbols = string.split("")
 
   	symbols.map! do |char|
@@ -20,7 +20,7 @@ def caesar_cipher(string, code)
   	end
 
 	symbols.map! do |char|
-	  if char >= 65 and char <= 90
+	  if char >= 65 && char <= 90
   	  	char += code
 
   	  	if char > 90
@@ -29,7 +29,7 @@ def caesar_cipher(string, code)
   	  	  char
   	  	end
 
-  	  elsif char >= 97 and char <= 122
+  	  elsif char >= 97 && char <= 122
   	  	char += code
 
   	  	if char > 122
@@ -56,7 +56,7 @@ def caesar_cipher(string, code)
 end
 
 #check if string is a number
-until not empty?(code) and str_is_int?(code)  do
+until !empty?(code) && str_is_int?(code)  do
   puts "Error! Enter a number please" 
   code = gets.chomp	  
 end

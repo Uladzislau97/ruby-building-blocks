@@ -15,7 +15,7 @@ def stock_picker(prices)
 
   end
 
-  if buy_day == 0 and sell_day == 0
+  if buy_day == 0 && sell_day == 0
   	"It is not the best days for stock operations"
   else
     [buy_day, sell_day]
